@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactors; 
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class ToggleNearFarAttach : MonoBehaviour
 {
@@ -16,8 +16,9 @@ public class ToggleNearFarAttach : MonoBehaviour
     {
         if (nearFarInteractor != null)
         {
-            // Activa o desactiva el componente para habilitar/deshabilitar los rayos de distancia
-            nearFarInteractor.enabled = isEnabled;
+            // Solo activamos/desactivamos la proyección a distancia (Far Casting)
+            // Así, el agarre cercano (Near Casting) seguirá funcionando siempre.
+            nearFarInteractor.enableFarCasting = isEnabled;
         }
         else
         {
